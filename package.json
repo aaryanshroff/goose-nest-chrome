@@ -2,16 +2,16 @@
   "name": "goose-nest-chrome",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/background.js",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
+    "watch": "parcel watch src/background.ts src/popup.html --public-url ./",
+    "build": "parcel build src/background.ts src/popup.html --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aaryan Shroff",
   "license": "ISC",
   "devDependencies": {
     "@types/chrome": "^0.0.254",
+    "parcel": "^2.10.3",
     "typescript": "^5.3.3"
   }
 }
