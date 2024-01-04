@@ -1,6 +1,7 @@
+import { performScraping } from "./scraper";
 import { OpenUrlMessage } from "./types";
 
-function handleOpenUrl(message: OpenUrlMessage) {
+export function handleOpenUrl(message: OpenUrlMessage) {
   chrome.tabs.create({ url: message.url }, (tab) => {
     // Check if tab.id is undefined or not
     if (tab.id === undefined) return;
@@ -12,7 +13,7 @@ function handleOpenUrl(message: OpenUrlMessage) {
         // Now the tab has finished loading, execute the content script.
         chrome.scripting.executeScript({
           target: { tabId: tabId },
-          files: ["src/content.js"],
+          func: performScraping
         }, (results) => {
           // Handle the results returned by the script here
           if (results) {
@@ -31,5 +32,3 @@ function handleOpenUrl(message: OpenUrlMessage) {
     chrome.tabs.onUpdated.addListener(onUpdatedCallback);
   });
 }
-
-export default handleOpenUrl;

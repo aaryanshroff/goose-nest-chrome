@@ -1,4 +1,4 @@
-import handleOpenUrl from './openUrlAction';
+import { handleOpenUrl } from './openUrlAction';
 import { isOpenUrlMessage } from './types';
 
 export function handleMessage(message: any, sender: chrome.runtime.MessageSender, sendResponse: (response?: any) => void) {
