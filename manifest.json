@@ -1,5 +1,6 @@
 {
   "manifest_version": 3,
+  "minimum_chrome_version": "93",
   "name": "Goose Nest Chrome",
   "version": "1.0",
   "permissions": ["activeTab", "scripting", "tabs"],
@@ -7,9 +8,10 @@
     "*://*.facebook.com/marketplace/*"
   ],
   "background": {
-    "service_worker": "src/background.js"
+    "service_worker": "dist/background.js",
+    "type": "module"
   },
   "action": {
-    "default_popup": "src/popup.html"
+    "default_popup": "public/popup.html"
   }
 }
