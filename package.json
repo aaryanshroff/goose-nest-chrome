@@ -1,0 +1,17 @@
+{
+  "name": "goose-nest-chrome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/background.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aaryan Shroff",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chrome": "^0.0.254",
+    "typescript": "^5.3.3"
+  }
+}
