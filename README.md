@@ -1,1 +1,1 @@
-# goose-nest-chrome
+# Goose Nest Chrome Extension
