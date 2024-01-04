@@ -1,8 +1,5 @@
 import { handleMessage } from './messageHandlers';
 
-// @ts-ignore
-var exports = {}
-
 try {
   chrome.runtime.onMessage.addListener(handleMessage);
 } catch (error) {
