@@ -1,7 +1,7 @@
 import { Listing } from "./types";
 
 
-function performScraping(): Array<Listing> | null {
+export function performScraping(): Array<Listing> | null {
   try {
     console.log("Scraping...");
     const collectionElement = document.querySelector(
@@ -35,5 +35,3 @@ function performScraping(): Array<Listing> | null {
     return null
   }
 }
-
-performScraping();
