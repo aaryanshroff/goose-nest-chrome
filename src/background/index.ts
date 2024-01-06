@@ -1,5 +1,5 @@
 import { scrapeFacebookMarketplace } from '../utils/scrapers';
-import { isOpenUrlMessage } from '../utils/type-guards';
+import { isLogMessage, isOpenUrlMessage } from '../utils/type-guards';
 
 /**
  * Processes incoming messages, delegating to specific handlers based on the message type.
@@ -13,10 +13,27 @@ import { isOpenUrlMessage } from '../utils/type-guards';
 function handleMessage(message: any, sender: chrome.runtime.MessageSender, sendResponse: (response?: any) => void) {
   console.log('Received message', message, 'from', sender);
 
-  if (isOpenUrlMessage(message)) {
+  if (isLogMessage(message)) {
+    handleLogMessage(message);
+  }
+  else if (isOpenUrlMessage(message)) {
     handleOpenUrlMessage(message);
   } else {
-    console.warn('Unknown action:', message.action);
+    console.error('Unknown action:', message);
+  }
+}
+
+/**
+ * TODO
+ */
+function handleLogMessage(message: LogMessage) {
+  switch (message.level) {
+    case 'error':
+      console.error(message.data);
+      break;
+    default:
+      console.log(message.data);
+      break;
   }
 }
 
