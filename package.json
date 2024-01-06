@@ -2,9 +2,19 @@
   "name": "goose-nest-chrome",
   "version": "1.0.0",
   "description": "",
+  "targets": {
+    "public": {
+      "source": "public/popup.html",
+      "publicUrl": "./"
+    },
+    "service_worker": {
+      "source": "src/background/index.ts",
+      "context": "service-worker"
+    }
+  },
   "scripts": {
-    "watch": "parcel watch public/popup.html src/background/index.ts --public-url ./",
-    "build": "parcel build public/popup.html src/background/index.ts --public-url ./",
+    "watch": "parcel watch",
+    "build": "parcel build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aaryan Shroff",
@@ -13,12 +23,14 @@
     "@types/chrome": "^0.0.254",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
+    "@types/react-select": "^5.0.1",
     "parcel": "^2.10.3",
     "process": "^0.11.10",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-select": "^5.8.0"
   }
 }
