@@ -8,10 +8,10 @@
     "*://*.facebook.com/marketplace/*"
   ],
   "background": {
-    "service_worker": "dist/background.js",
+    "service_worker": "../dist/background.js",
     "type": "module"
   },
   "action": {
-    "default_popup": "dist/popup.html"
+    "default_popup": "../dist/popup.html"
   }
 }

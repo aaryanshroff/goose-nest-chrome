@@ -1,7 +1,14 @@
-import { Listing } from "./types";
-
-
-export function performScraping(): Array<Listing> | null {
+/**
+ * Scrape listings from the Facebook Marketplace page currently active in the browser tab.
+ *
+ * This function assumes that the active tab is displaying the Facebook Marketplace
+ * with listings present. It searches for a collection element that is expected to
+ * contain the Marketplace items and extracts information from each listing link.
+ *
+ * If the expected collection element is not found or an error occurs during the scraping process,
+ * the function will log the error and return null.
+ */
+export function scrapeFacebookMarketplace(): Array<Listing> | null {
   try {
     console.log("Scraping...");
     const collectionElement = document.querySelector(
