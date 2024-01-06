@@ -1,4 +1,7 @@
 import React from "react";
+import Select from "react-select";
+
+const cityOptions = [{ value: "toronto", label: "Toronto" }];
 
 function scrapeListingsClickHandler() {
   console.log("Sending message to background script...");
@@ -13,5 +16,10 @@ function scrapeListingsClickHandler() {
 }
 
 export function Popup() {
-  return <button onClick={scrapeListingsClickHandler}>Scrape Listings</button>;
+  return (
+    <div>
+      <h1>Goose Nest</h1>
+      <Select defaultValue={cityOptions[0]} options={cityOptions} />
+    </div>
+  );
 }

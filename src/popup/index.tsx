@@ -7,7 +7,9 @@ if (app) {
   const root = createRoot(app);
   root.render(<Popup />);
 } else {
-  console.error(
-    'Could not find an HTML element with ID "app" to set as the root of React DOM.'
-  );
+  chrome.runtime.sendMessage({
+    action: "log",
+    level: "error",
+    data: 'Could not find an HTML element with ID "app" to set as the root of React DOM.',
+  });
 }
